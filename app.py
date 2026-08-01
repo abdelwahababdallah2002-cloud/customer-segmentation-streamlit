@@ -28,6 +28,22 @@ grocery = st.number_input("Grocery", min_value=0.0)
 frozen = st.number_input("Frozen", min_value=0.0)
 detergents = st.number_input("Detergents_Paper", min_value=0.0)
 delicassen = st.number_input("Delicassen", min_value=0.0)
+if st.button("Predict Cluster"):
+
+    customer = [[
+        fresh,
+        milk,
+        grocery,
+        frozen,
+        detergents,
+        delicassen
+    ]]
+
+    customer_scaled = scaler.transform(customer)
+
+    predicted_cluster = kmeans.predict(customer_scaled)
+
+    st.success(f"✅ This customer belongs to Cluster {predicted_cluster[0]}")
 
 pca = PCA(n_components=2)
 X_pca = pca.fit_transform(X_scaled)
