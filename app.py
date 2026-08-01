@@ -20,6 +20,14 @@ X_scaled = scaler.fit_transform(X)
 
 kmeans = KMeans(n_clusters=5, random_state=42)
 clusters = kmeans.fit_predict(X_scaled)
+st.subheader("Enter Customer Information")
+
+fresh = st.number_input("Fresh", min_value=0.0)
+milk = st.number_input("Milk", min_value=0.0)
+grocery = st.number_input("Grocery", min_value=0.0)
+frozen = st.number_input("Frozen", min_value=0.0)
+detergents = st.number_input("Detergents_Paper", min_value=0.0)
+delicassen = st.number_input("Delicassen", min_value=0.0)
 
 pca = PCA(n_components=2)
 X_pca = pca.fit_transform(X_scaled)
