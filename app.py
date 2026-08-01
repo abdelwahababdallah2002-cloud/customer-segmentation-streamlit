@@ -17,9 +17,8 @@ X = df.drop(columns=["Channel","Region"])
 scaler = StandardScaler()
 X_scaled = scaler.fit_transform(X)
 
-k = st.slider("Number of Clusters",2,10,5)
 
-kmeans = KMeans(n_clusters=k, random_state=42)
+kmeans = KMeans(n_clusters=5, random_state=42)
 clusters = kmeans.fit_predict(X_scaled)
 
 pca = PCA(n_components=2)
